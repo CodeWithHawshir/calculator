@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" class="calculator-screen" id="Display" disabled />
+        <div class="calculator-keys">
+            <button type="button"onclick = Todisplay("+") class="operator">+</button>
+            <button type="button"onclick = Todisplay("-") class="operator" value="-">-</button>
+            <button type="button"onclick = Todisplay("*") class="operator" value="x">x</button>
+            <button type="button"onclick = Todisplay("/") class="operator" value="/">/</button>
+
+            <button type="button"onclick = Todisplay("7") value="7">7</button>
+            <button type="button"onclick = Todisplay("8") value="8">8</button>
+            <button type="button"onclick = Todisplay("9") value="9">9</button>
+
+            <button type="button"onclick = Todisplay("4") value="4">4</button>
+            <button type="button"onclick = Todisplay("5") value="5">5</button>
+            <button type="button"onclick = Todisplay("6") value="6">6</button>
+
+            <button type="button"onclick = Todisplay("1") value="1">1</button>
+            <button type="button"onclick = Todisplay("2") value="2">2</button>
+            <button type="button"onclick = Todisplay("3") value="3">3</button>
+
+            <button type="button"onclick = Todisplay("0") value="0">0</button>
+            <button type="button"onclick = Todisplay(".") class="decimal" value=".">.</button>
+            <button type="button"onclick = removeLastCharacter() class="del">DEL</button>
+            <button type="button"onclick = cleardisplay("") class="all-clear" value="all-clear">AC</button>
+            <button type="button"onclick = calculate("=") class="equal-sign operator" value="=">=</button>
+        </div>
+    </div>
+    <script>
+        var Display = document.getElementById("Display");
+
+        function Todisplay(input){
+            Display.value += input;
+        }
+
+        function cleardisplay(input){
+            Display.value = "";
+        }
+
+        function removeLastCharacter(){
+            var display = document.getElementById('display');
+            Display.value = Display.value.slice(0, -1);
+        }
+
+        function calculate(input){
+            try{
+                Display.value = eval(Display.value);
+
+            }
+
+            catch(Error){
+                Display.value = "Error";
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
